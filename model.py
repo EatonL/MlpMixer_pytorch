@@ -2,7 +2,6 @@ import torch
 from torch import nn, einsum
 import einops
 
-
 class MlpBlock(nn.Module):
     def __init__(self, dim, inter_dim, dropout_ratio):
         super().__init__()
@@ -17,7 +16,6 @@ class MlpBlock(nn.Module):
 
     def forward(self, x):
         return self.ff(x)
-
 
 class MixerLayer(nn.Module):
     def __init__(self, 
@@ -42,7 +40,6 @@ class MixerLayer(nn.Module):
         z = self.Mlp_channel(z)
         out = x + y + z
         return out
-
 
 class Mlp_Mixer(nn.Module):
     def __init__(self,
@@ -74,7 +71,6 @@ class Mlp_Mixer(nn.Module):
         x = x.mean(dim=2)
         x = self.fc(x)
         return x
-
 
 if __name__ == '__main__':
     t1 = torch.rand(1, 3, 128, 128)
