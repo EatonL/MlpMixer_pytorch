@@ -71,9 +71,3 @@ class Mlp_Mixer(nn.Module):
         x = x.mean(dim=2)
         x = self.fc(x)
         return x
-
-if __name__ == '__main__':
-    t1 = torch.rand(1, 3, 128, 128)
-    net = Mlp_Mixer(3, 32, 32, 32, (128, 128), (16, 16), 2, 6, 0)
-    out = net(t1)
-    # print(out.shape)
